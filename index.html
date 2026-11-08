@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Wheel Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="blur-bg"></div>
+    <div class="app-container">
+        <header>
+            <div class="brand">
+                <div>
+                    <div class="logo">FORTUNE<span>.</span></div>
+                </div>
+            </div>
+            <button id="theme-btn" class="icon-btn" type="button" aria-label="Переключить тему">☼</button>
+        </header>
+
+        <main class="main-content">
+            <div class="controls-panel">
+                <div class="panel-heading">
+                    <div>
+                        <div class="section-kicker">Твой выбор</div>
+                        <div class="panel-title">Что решаем?</div>
+                    </div>
+                    <span id="option-count" class="option-count">0 вариантов</span>
+                </div>
+                <div class="input-group">
+                    <div class="input-heading">
+                        <label for="options-input">Варианты</label>
+                        <span class="input-tip">Один вариант — одна строка</span>
+                    </div>
+                    <textarea id="options-input" placeholder="Куда поехать?&#10;Что заказать?&#10;Чем заняться?" aria-describedby="option-count"></textarea>
+                </div>
+                <div class="result-card" aria-live="polite">
+                    <span class="result-label">ВЫПАЛО</span>
+                    <div id="result-display" class="result-box">ГОТОВ К ЗАПУСКУ</div>
+                </div>
+                <button id="reset-btn" class="reset-btn" type="button">↺ &nbsp;Вернуть ДА / НЕТ</button>
+            </div>
+
+            <div class="wheel-section">
+                <div class="wheel-heading">
+                    <h1>Пусть решит случай</h1>
+                    <p>Добавь варианты и нажми на кнопку</p>
+                </div>
+                <div class="wheel-wrapper">
+                    <div class="pointer-new" aria-hidden="true"></div>
+                    <canvas id="wheel" width="500" height="500" aria-label="Колесо случайного выбора"></canvas>
+                    <button id="spin-btn" class="center-spin" type="button" aria-label="Крутить колесо"><span>GO</span></button>
+                </div>
+            </div>
+        </main>
+        <footer class="keyboard-hints">
+            <div class="hint"><kbd>SPACE</kbd> Крутить</div>
+            <div class="hint"><kbd>R</kbd> Сбросить</div>
+            <div class="hint"><kbd>E</kbd> Изменить варианты</div>
+        </footer>
+    </div>
+    <dialog id="winner-dialog" class="winner-dialog" aria-labelledby="winner-title">
+        <div class="winner-content">
+            <p id="winner-title" class="winner-title">ВЫПАЛО</p>
+            <p id="winner-value" class="winner-value"></p>
+            <button id="winner-close" class="winner-close" type="button" autofocus>Понятно</button>
+        </div>
+    </dialog>
+    <script src="script.js"></script>
+</body>
+</html>
